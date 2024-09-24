@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple(Indonesia)</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <nav>
+        <div class="header">
+            <i class="fa-brands fa-apple"></i>
+            <a href="#">Mac</a>
+            <a href="#">iPad</a>
+            <a href="#">iPhone</a>
+            <a href="#">Watch</a>
+            <a href="#">AirPods</a>
+            <a href="#"> TV & Rumah</a>
+            <a href="#">Hiburan</a>
+            <a href="#">Dukungan</a>
+            <a href="#"> Tempat Membeli</a>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container1">
+        <p class="judul">iPhone</p>
+        <p class="subjudul">Sistem kamera tercanggih kami. <br>Chip ultra cepat. Dan USB-C</p>
+
+        <button type="button" class="left">Selengkapnya</button>
+        <button type="button" class="right">Beli iPhone</button>
+
+        <img src="./src/img/apple.jpg" alt="hp">
+    </div>
+
+    <div class="container2">
+        <div class="product1">
+            <p>
+                iPad <span style="color: #007bff;">air</span>
+            </p>
+            <h3>Dua ukuran. Chip yang lebih cepat. <br>Mudah lakukan semua.</h3>
+            <button type="button" class="left1">Selengkapnya</button>
+            <button type="button" class="right1">Beli</button>
+            <img src="./src/img/ipad.png" alt="ipad">
+        </div>
+        <div class="product2">
+            <p>MacBook Air</p>
+            <h3>Laptop M3 tipis. Bertenaga fantastis.</h3>
+            <button type="button" class="left2">Selengkapnya</button>
+            <button type="button" class="right2">Beli</button>
+            <img src="./src/img/macbook.png" alt="macbook">
+        </div>
+    </div>
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="./src/img/film1.jpg" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="./src/img/film2.jpg" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="./src/img/film3.jpg" style="width:100%">
+        </div>
+
+        <!-- Navigasi -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+</body>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        const slides = document.getElementsByClassName("mySlides");
+        const dots = document.getElementsByClassName("dot");
+
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+
+    // Untuk otomatis slideshow
+    setInterval(() => {
+        plusSlides(1);
+    }, 3000); // Ganti gambar setiap 3 detik
+
+</script>
+
+</html>
